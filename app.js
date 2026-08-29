@@ -356,7 +356,8 @@ function startCelebration() {
 // =========================================================
 document.addEventListener('DOMContentLoaded', () => {
   const btnStart = document.getElementById('btnStart');
-  const giftBox = document.getElementById('giftBox');
+  const cinnamorollHero = document.getElementById('cinnamorollHero');
+  const cinnamorollCelebration = document.getElementById('cinnamorollCelebration');
   const launchFireworkBtn = document.getElementById('launchFireworkBtn');
   const boostBtn = document.getElementById('boostBtn');
   const soundToggle = document.getElementById('soundToggle');
@@ -367,7 +368,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModalActionBtn = document.getElementById('closeModalActionBtn');
 
   btnStart.addEventListener('click', startCelebration);
-  giftBox.addEventListener('click', startCelebration);
+  if (cinnamorollHero) cinnamorollHero.addEventListener('click', startCelebration);
+
+  if (cinnamorollCelebration) {
+    cinnamorollCelebration.addEventListener('click', (e) => {
+      e.stopPropagation();
+      initAudio();
+      playCelebrationChime();
+      launchBurst(5);
+    });
+  }
 
   launchFireworkBtn.addEventListener('click', (e) => {
     e.stopPropagation();

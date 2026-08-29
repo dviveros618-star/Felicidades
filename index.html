@@ -17,13 +17,14 @@
   <!-- PANTALLA 1: Botón Inicial "Toca aquí" -->
   <section id="introScreen" class="screen active">
     <div class="intro-content">
-      <div class="gift-box-wrapper" id="giftBox">
-        <div class="gift-glow"></div>
-        <div class="gift-icon">🎁</div>
+      <div class="cinnamoroll-hero-wrap" id="cinnamorollHero">
+        <div class="character-glow"></div>
+        <img src="images.webp" alt="Cinnamoroll" class="cinnamoroll-img floating-anim">
         <div class="sparkles-floating">✨</div>
+        <div class="speech-bubble">¡Hola Karla! 🎉</div>
       </div>
       
-      <h1 class="intro-title">¡Karla, tienes una sorpresa especial!</h1>
+      <h1 class="intro-title">¡Tienes una sorpresa muy especial!</h1>
       <p class="intro-subtitle">Sube el volumen de tu celular 🔊</p>
 
       <button id="btnStart" class="btn-magic-touch" aria-label="Toca aquí para ver tu sorpresa de cumpleaños">
@@ -52,6 +53,12 @@
     </header>
 
     <main class="celebration-container">
+      <!-- Cinnamoroll Festivo Flotante -->
+      <div class="cinnamoroll-celebration-badge" id="cinnamorollCelebration" title="¡Tócame para saltar!">
+        <img src="images.webp" alt="Cinnamoroll festejando" class="cinnamoroll-badge-img">
+        <span class="party-hat">🎉</span>
+      </div>
+
       <!-- Título Principal con Efecto Brillante -->
       <div class="hero-text-wrap">
         <div class="confetti-emoji-row">🎉 🎂 🥳 💖 ✨</div>
@@ -59,7 +66,7 @@
           <span class="gradient-word">¡FELIZ CUMPLE</span>
           <span class="highlight-word">KARLA!</span>
         </h1>
-        <p class="sub-hero-text">¡Hoy celebramos la vida de una gran amiga!</p>
+        <p class="sub-hero-text">¡Cinnamoroll y todos nosotros celebramos tu día!</p>
       </div>
 
       <!-- Tarjetas de Mensajes con Animaciones Progresivas -->
@@ -124,7 +131,12 @@
   <div id="letterModal" class="modal-overlay hidden">
     <div class="modal-card">
       <button id="closeModalBtn" class="modal-close-btn">&times;</button>
-      <div class="modal-stamp">💌</div>
+      
+      <div class="modal-cinnamoroll-header">
+        <img src="images.webp" alt="Cinnamoroll Carta" class="modal-cinna-img">
+        <span class="modal-stamp-badge">💌</span>
+      </div>
+
       <h2 class="modal-title">Para una Amiga Increíble: Karla</h2>
       <div class="modal-text">
         <p>
