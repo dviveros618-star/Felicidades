@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>¡Feliz Cumpleaños Karla! 🎂🎉✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Pacifico&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Canvas para los fuegos artificiales y confeti de fondo -->
+  <canvas id="fireworksCanvas"></canvas>
+
+  <!-- PANTALLA 1: Botón Inicial "Toca aquí" -->
+  <section id="introScreen" class="screen active">
+    <div class="intro-content">
+      <div class="gift-box-wrapper" id="giftBox">
+        <div class="gift-glow"></div>
+        <div class="gift-icon">🎁</div>
+        <div class="sparkles-floating">✨</div>
+      </div>
+      
+      <h1 class="intro-title">¡Karla, tienes una sorpresa especial!</h1>
+      <p class="intro-subtitle">Sube el volumen de tu celular 🔊</p>
+
+      <button id="btnStart" class="btn-magic-touch" aria-label="Toca aquí para ver tu sorpresa de cumpleaños">
+        <span class="btn-bg"></span>
+        <span class="btn-text">
+          <span class="finger-icon">👉</span> 
+          <span>¡TOCA AQUÍ, KARLA!</span> 
+          <span class="sparkle-icon">✨</span>
+        </span>
+        <span class="pulse-ring"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PANTALLA 2: Celebración Principal con Cuetes y Mensajes -->
+  <section id="celebrationScreen" class="screen hidden">
+    <!-- Barra superior con control de sonido y botón de cuetes -->
+    <header class="top-nav">
+      <button id="soundToggle" class="icon-badge-btn" title="Activar/Silenciar sonido">
+        <span id="soundIcon">🔊</span>
+      </button>
+      <div class="badge-tag">🎂 ¡CUMPLE DE KARLA! 🎂</div>
+      <button id="boostBtn" class="icon-badge-btn" title="Lanzar ráfaga de cuetes">
+        <span>🚀</span>
+      </button>
+    </header>
+
+    <main class="celebration-container">
+      <!-- Título Principal con Efecto Brillante -->
+      <div class="hero-text-wrap">
+        <div class="confetti-emoji-row">🎉 🎂 🥳 💖 ✨</div>
+        <h1 class="main-title">
+          <span class="gradient-word">¡FELIZ CUMPLE</span>
+          <span class="highlight-word">KARLA!</span>
+        </h1>
+        <p class="sub-hero-text">¡Hoy celebramos la vida de una gran amiga!</p>
+      </div>
+
+      <!-- Tarjetas de Mensajes con Animaciones Progresivas -->
+      <div class="messages-deck">
+        
+        <article class="msg-card card-1 active">
+          <div class="card-glow"></div>
+          <div class="card-icon-header">💖</div>
+          <h2 class="card-title">¡Gracias por ser tan gran amiga!</h2>
+          <p class="card-body">
+            Qué gran alegría es poder celebrar tu cumpleaños hoy. Gracias por tu amistad sincera, por las risas compartidas y por ser esa persona tan auténtica y especial.
+          </p>
+          <div class="card-footer-tags">
+            <span>✨ Gran Amiga</span>
+            <span>🎂 Feliz Vuelta al Sol</span>
+            <span>🥳 La Mejor</span>
+          </div>
+        </article>
+
+        <article class="msg-card card-2">
+          <div class="card-glow"></div>
+          <div class="card-icon-header">🌟</div>
+          <h2 class="card-title">Que este nuevo año sea mágico</h2>
+          <p class="card-body">
+            Deseo de todo corazón que este nuevo año de vida venga cargado de éxitos, bendiciones, mucha salud y que cada uno de tus sueños se haga realidad.
+          </p>
+          <div class="card-reaction-row">
+            <span>⭐ Cumple tus metas</span>
+            <span>🥂 Mucho éxito</span>
+          </div>
+        </article>
+
+        <article class="msg-card card-3">
+          <div class="card-glow"></div>
+          <div class="card-icon-header">🎉</div>
+          <h2 class="card-title">¡A festejar tu día a lo grande!</h2>
+          <p class="card-body">
+            Disfruta cada instante, sonríe mucho, come pastel y que empiece la fiesta con estos cuetes preparados especialmente para ti.
+          </p>
+          <button id="openLetterBtn" class="btn-card-action">
+            💌 Abrir carta para Karla
+          </button>
+        </article>
+
+      </div>
+
+      <!-- Indicador interactivo para tocar la pantalla -->
+      <div class="touch-hint">
+        <span>👆 Toca cualquier parte de la pantalla para lanzar más cuetes 🎇</span>
+      </div>
+
+      <!-- Botón de acción adicional -->
+      <div class="actions-group">
+        <button id="launchFireworkBtn" class="btn-action-primary">
+          <span>🎆 ¡Lanzar Ráfaga de Cuetes! 🎇</span>
+        </button>
+      </div>
+    </main>
+  </section>
+
+  <!-- MODAL: Carta / Dedicatoria Personalizada -->
+  <div id="letterModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <button id="closeModalBtn" class="modal-close-btn">&times;</button>
+      <div class="modal-stamp">💌</div>
+      <h2 class="modal-title">Para una Amiga Increíble: Karla</h2>
+      <div class="modal-text">
+        <p>
+          "Karla, los amigos sinceros son un tesoro, y tener tu amistad es algo que valoro muchísimo. En tu cumpleaños quiero desearte lo más bonito del mundo."
+        </p>
+        <p class="modal-highlight">
+          ¡Pide muchos deseos al soplar tus velitas porque te mereces todo lo bueno hoy y siempre! 🎂🥂✨
+        </p>
+      </div>
+      <div class="modal-signature">
+        <span>Con mucho cariño y aprecio, ¡tu amigo! ❤️</span>
+      </div>
+      <button id="closeModalActionBtn" class="btn-action-primary">
+        ¡Muchas Gracias! 🎉✨
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
